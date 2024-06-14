@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id = "titulo" >Encabezado Azul :D </h1>
+    <p class="intro">eyeyeye</p>
+    <p class="intro">reportandose</p>
+   
+
+
+    <ul>
+        <li>hola</li>
+        <li>que hace</li>
+        <li>andas muy</li>
+        <li>ocupado?</li>
+        <li>responde</li>
+    </ul>
+
+    <div class="list">
+        pero que calor hace
+    </div>
+
+    <ul>
+        <li>sopas</li>
+        <li>camaron</li>
+        <li>nissi</li>
+        <li>coca</li>
+        <li>pepsi</li>
+    </ul>
+    <p id="demo"></p>
+
+    <script>
+        document.getElementById("demo").innerHTML = "Fecha: " + Date();
+    </script>
+
+
+    <div id="contenedor"></div>
+
+    <button id="btn">Haz clic aquí</button>
+    <script>
+    const boton = document.getElementById("btn");
+    boton.addEventListener("click", () => {
+    alert("Gracias por dar Click");
+    });
+    </script>
+
+    <script>
+    // lista
+    let lista = document.createElement("ul");
+    // 1er elemento 
+    let elemento1 = document.createElement("li");
+    elemento1.textContent = "Flor";
+    lista.appendChild(elemento1);
+    // 2do elemento
+    let elemento2 = document.createElement("li");
+    elemento2.textContent = "Jaguar";
+    lista.appendChild(elemento2);
+    // 3er elemento 
+    let elemento3 = document.createElement("li");
+    elemento3.textContent = "Montaña";
+    lista.appendChild(elemento3);
+    // 4to elemento
+    let elemento4 = document.createElement("li");
+    elemento4.textContent = "Océano";
+    lista.appendChild(elemento4);
+    // 5to elemento
+    let elemento5 = document.createElement("li");
+    elemento5.textContent = "Cielo";
+    lista.appendChild(elemento5);
+    // Agregar la lista <ul> al cuerpo del documento
+    document.getElementById("contenedor").appendChild(lista);
+    </script>
+
+
+
+
+    <script>
+    const h1 = document.querySelector("h1");
+    h1.style.color = "blue";
+
+
+    const listaDeElementos = document.querySelectorAll("ul > li");
+    listaDeElementos.forEach((item) => {
+    console.log(item);
+    });
+
+    const list = document.querySelector(".list");
+    console.log(list);
+
+
+    const h1Element = document.querySelector("h1");
+    console.log(h1Element);
+
+
+    //const listItems = document.querySelectorAll("ul > li");
+    //console.log(listItems);
+
+    //const x = document.querySelectorAll("p.intro");
+    //console.log(x);
+
+    //document.getElementById("p1").innerHTML = "¡Nuevo Texto!";
+
+
+    //const elemento = document.getElementById("titulo");
+    //elemento.innerHTML= "Nuevo Encabezado";
+    //const elemento = document.getElementById("p");
+ 
+
+    // const x = document.getElementById("main");
+    //console.log(x);
+
+    //const y = x.getElementsByTagName("p");
+   // console.log(y);
+
+   // const elemento = document.getElementById("intro");
+    </script> 
+
+
+<br>
+<label for="numero">Introduce un número entre 1 y 10:</label>
+<input type="number" id="numero" name="numero">
+<button type="button" onclick="miFunction()">Validar</button>
+<p id="demo1"></p>
+    <script>
+    function miFunction() {
+    let x = document.getElementById("numero").value;
+    let texto;        
+    if (isNaN(x) || x < 1 || x > 10) {
+    texto = "Entrada no válida";
+    } else {
+    texto = "Entrada correcta";
+    }
+    document.getElementById("demo1").innerHTML = texto;
+    }
+    </script>
+<br/>
+<form id="frm1" name="miFormulario" onsubmit="return validarFormulario()">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre"><br><br>
+    <label for="edad">Edad:</label>
+    <input type="number" id="edad" name="edad"><br><br>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email"><br><br>
+    <input type="submit" value="Enviar y Mostrar valores">
+</form>
+
+<p id="dem3"></p>
+
+<script>
+function validarFormulario() {
+    let nombre = document.forms["miFormulario"]["nombre"].value;
+    if (nombre == "") {
+        alert("Se debe completar el nombre");
+        return false;
+    }
+    mostrarValoresFormulario();
+    return false;  
+}
+
+function mostrarValoresFormulario() {
+    const x = document.forms["miFormulario"];
+    let texto = "";
+    for (let i = 0; i < x.length; i++) {
+        
+        if (x.elements[i].tagName === "INPUT") {
+            texto += x.elements[i].name + ": " + x.elements[i].value + "<br>";
+        }
+    }
+    document.getElementById("demo3").innerHTML = texto;
+    console.log(x);
+}
+</script>
+<img id="miImagen" src="imagen_actual.jpg" alt="Mi imagen">
+<script>
+    document.getElementById("miImagen").src = "cat.jpg";
+
+</script>
+
+</body>
+</html>
